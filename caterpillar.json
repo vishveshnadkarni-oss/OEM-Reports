@@ -1,0 +1,9 @@
+[
+  {
+    "date": "2025-01-15",
+    "customer": "ABC Ltd",
+    "amount": 2500000,
+    "status": "Disbursed",
+    "region": "South"
+  }
+]
