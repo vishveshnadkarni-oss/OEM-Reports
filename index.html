@@ -1366,7 +1366,7 @@
             const oemId = urlParams.get('id') || 'sample';
             
             // Set OEM name in header
-            const oemDisplayName = OEM_NAMES[oemId] || oemId.toUpperCase().replace(/_/g, ' ');
+            const oemDisplayName = OEM_NAMES[oemId] || oemId.toUpperCase().replace(/_/g, ' '); 
             document.getElementById('oemName').textContent = oemDisplayName;
             
             // Load data for this OEM
