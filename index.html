@@ -240,13 +240,13 @@
         }
 
         .conversion-neutral {
-            background: #6B4E1A;
-            color: #FFB84D;
+            background: #8B7500;
+            color: #FFE135;
         }
 
         .conversion-weak {
-            background: #8B2020;
-            color: #FF4444;
+            background: #C41E1E;
+            color: #FFFFFF;
         }
 
         @keyframes slideUp {
@@ -440,9 +440,9 @@
 
         .status-dispatched { background: #1B4332; color: #95D5B2; }
         .status-sanctioned { background: #1B3A52; color: #90E0EF; }
-        .status-logged { background: #6B4E1A; color: #FFB84D; }
+        .status-logged { background: #8B7500; color: #FFE135; }
         .status-credit { background: #4A1F28; color: #FF8FA3; }
-        .status-rejected { background: #8B2020; color: #FF4444; }
+        .status-rejected { background: #C41E1E; color: #FFFFFF; }
 
         .no-results {
             text-align: center;
@@ -927,9 +927,9 @@
             const colors = {
                 'Disbursed': '#2ECC71',
                 'Sanctioned': '#4ECDC4',
-                'Logged In': '#FFB84D',
+                'Logged In': '#FFE135',
                 'Under Credit Review': '#FF8FA3',
-                'Lost/Rejected': '#FF4444'
+                'Lost/Rejected': '#FF0000'
             };
 
             const backgroundColors = labels.map(label => colors[label] || '#8B92A8');
@@ -1171,9 +1171,9 @@
                     const statusColors = {
                         'Disbursed': [46, 204, 113],
                         'Sanctioned': [78, 205, 196],
-                        'Logged In': [255, 184, 77],
+                        'Logged In': [255, 225, 53],
                         'Under Credit Review': [255, 143, 163],
-                        'Lost/Rejected': [255, 68, 68]
+                        'Lost/Rejected': [255, 0, 0]
                     };
                     
                     const color = statusColors[item.status] || [139, 146, 168];
@@ -1276,9 +1276,9 @@
             if (conversionPercentage >= 40) {
                 conversionCard.style.borderLeftColor = '#2ECC71';
             } else if (conversionPercentage < 20) {
-                conversionCard.style.borderLeftColor = '#FF4444';
+                conversionCard.style.borderLeftColor = '#FF0000';
             } else {
-                conversionCard.style.borderLeftColor = '#FFB84D';
+                conversionCard.style.borderLeftColor = '#FFE135';
             }
         }
 
