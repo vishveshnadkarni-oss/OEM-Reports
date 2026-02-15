@@ -1,0 +1,51 @@
+[
+  {
+    "date": "2026-01-03",
+    "customer": "POOJA BOTHARE",
+    "amount": 2393099,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-06",
+    "customer": "NAVINKUMAR CHAUDHARY",
+    "amount": 1712568,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-30",
+    "customer": "NEHA JANGID",
+    "amount": 1086000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "CINCH CLINICS LLP",
+    "amount": 4459931,
+    "status": "Sanctioned",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "DEEPTI RANA",
+    "amount": 4449109,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "HOWTHUL RAJA",
+    "amount": 6615000,
+    "status": "Logged in",
+    "region": "South"
+  },
+  {
+    "date": "2025-12-11",
+    "customer": "NITIN CHHATRALIYA",
+    "amount": 1722688,
+    "status": "Sanctioned",
+    "region": "West"
+  }
+]

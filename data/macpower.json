@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-01-12",
+    "customer": "RAINBOW INDUSTRIES",
+    "amount": 4417920,
+    "status": "Disbursed",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "RAJ ENTERPRISES",
+    "amount": 3100000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-14",
+    "customer": "PIYUSH TECHNOLOGY",
+    "amount": 2400000,
+    "status": "Lost/ Rejected",
+    "region": "South"
+  }
+]

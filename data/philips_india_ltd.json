@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-14",
+    "customer": "UTKAL HEALTHCARE PRIVATE LIMITED",
+    "amount": 61990000,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-05",
+    "customer": "KANWAL JIT",
+    "amount": 7000000,
+    "status": "Logged in",
+    "region": "North"
+  }
+]

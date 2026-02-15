@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-22",
+    "customer": "OM ENTERPRISES",
+    "amount": 3278549,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "DSG ENGINEERING-BEMFR",
+    "amount": 3500000,
+    "status": "Logged in",
+    "region": "West"
+  }
+]

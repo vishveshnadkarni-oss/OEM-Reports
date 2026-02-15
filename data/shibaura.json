@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-01-29",
+    "customer": "ZYNOR INTERNATIONAL PRIVATE LIMITED",
+    "amount": 4625600,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "BEACON OPTRONICS INDIA PRIVATE LIMITED",
+    "amount": 3978016,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-16",
+    "customer": "APEX INTERNATIONAL",
+    "amount": 2758250,
+    "status": "Disbursed",
+    "region": "North"
+  }
+]

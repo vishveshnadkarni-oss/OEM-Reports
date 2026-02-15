@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-19",
+    "customer": "SAI SAMARATH INDUSTRIES",
+    "amount": 8000000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "IVA POLYETH SOLUTIONS PRIVATE LIMITED",
+    "amount": 4021440,
+    "status": "Disbursed",
+    "region": "West"
+  }
+]

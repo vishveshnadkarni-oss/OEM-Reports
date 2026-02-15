@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2025-12-27",
+    "customer": "BALAJI ENTERPRISES",
+    "amount": 2333450,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2025-12-30",
+    "customer": "TERI OAT AGRO INDUSTRIES PRIVATE LIMITED",
+    "amount": 22392000,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-03",
+    "customer": "U K ENGG WORKS",
+    "amount": 3445600,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-30",
+    "customer": "Kumar Engineering Co",
+    "amount": 2500000,
+    "status": "Under Credit Review",
+    "region": "North"
+  }
+]

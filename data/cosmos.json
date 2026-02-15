@@ -1,0 +1,65 @@
+[
+  {
+    "date": "2026-01-23",
+    "customer": "PURE MOLD TECH TOOLING PRIVATE LIMITED",
+    "amount": 3474864,
+    "status": "Disbursed",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "C S Engineering Works",
+    "amount": 2600000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-19",
+    "customer": "SAINI ENGINEERING WORKS",
+    "amount": 5315900,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "JAS ENTERPRISES",
+    "amount": 1300000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2025-12-23",
+    "customer": "ALOK ENGINEERING WORKS",
+    "amount": 1900000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "J K ENTERPRISES",
+    "amount": 2023700,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "KRISHNA ENGINEERING WORKS",
+    "amount": 1000000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "DIVYA ENGINEERING WORKS",
+    "amount": 1900000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-05",
+    "customer": "GRINDWELL ENGINEERS",
+    "amount": 4999000,
+    "status": "Logged in",
+    "region": "South"
+  }
+]

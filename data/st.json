@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-01-29",
+    "customer": "S K ENTERPRISES II",
+    "amount": 9100000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-14",
+    "customer": "SHIVA INDUSTRIES",
+    "amount": 1817200,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "PAVR TOOLS AND TECHNOLOGIES PRIVATE LIMITED",
+    "amount": 21700000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-03",
+    "customer": "REHOBOTH ENGINEERS",
+    "amount": 1000000,
+    "status": "Disbursed",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-29",
+    "customer": "BALAJI ENGINEERING WORKS",
+    "amount": 3500000,
+    "status": "Under Credit Review",
+    "region": "North"
+  }
+]

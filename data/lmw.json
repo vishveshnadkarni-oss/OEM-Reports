@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-23",
+    "customer": "SWASTIK ENTERPRISES",
+    "amount": 4625600,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-16",
+    "customer": "GAURI ENTERPRISES",
+    "amount": 1779440,
+    "status": "Disbursed",
+    "region": "North"
+  }
+]

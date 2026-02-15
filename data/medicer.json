@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-03",
+    "customer": "DEV DIAGNOSTIC CENTER",
+    "amount": 4048972,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-28",
+    "customer": "SPARK IMAGING CENTRE",
+    "amount": 4000000,
+    "status": "Logged in",
+    "region": "North"
+  }
+]

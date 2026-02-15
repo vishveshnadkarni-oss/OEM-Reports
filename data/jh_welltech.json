@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-01-07",
+    "customer": "BANSAL PLASTIC PRODUCTS",
+    "amount": 2737600,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "S D INDUSTRIES",
+    "amount": 1982400,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "ANUJ UDYOG",
+    "amount": 5100000,
+    "status": "Logged in",
+    "region": "North"
+  }
+]

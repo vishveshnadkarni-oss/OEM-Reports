@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-01-23",
+    "customer": "LAXMI ENGINEERING",
+    "amount": 1000000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-31",
+    "customer": "GILL AGRICULTURE IMPLEMENTS PRIVATE LIMITED",
+    "amount": 1200000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-09",
+    "customer": "KNL AXLES PRIVATE LIMITED",
+    "amount": 21783000,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "TURBO TECH",
+    "amount": 1941100,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "S S CASTINGS",
+    "amount": 2029600,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-08",
+    "customer": "GURMEET AGRO INDUSTRIES",
+    "amount": 3600000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "AVANI CAD CAM SOLUTIONS",
+    "amount": 2300000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2025-12-31",
+    "customer": "S S ENGINEERING WORKS",
+    "amount": 1400000,
+    "status": "Logged in",
+    "region": "North"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-01-24",
+    "customer": "RAJPAL HOSPITAL",
+    "amount": 800000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-06",
+    "customer": "JEEVAN HOSPITAL",
+    "amount": 1260000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-22",
+    "customer": "ANAS FAHIM",
+    "amount": 1350000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-03",
+    "customer": "ANIKET RAY",
+    "amount": 558956,
+    "status": "Sanctioned",
+    "region": "West"
+  }
+]

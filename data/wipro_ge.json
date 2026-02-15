@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-01-22",
+    "customer": "PENTAGON HEALTHCARE PVT LTD",
+    "amount": 10000000,
+    "status": "Logged in",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "LAB MICROCARE DIAGNOSTICS INDIA PRIVATE LIMITED",
+    "amount": 1300000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2025-12-31",
+    "customer": "BHANUPRATHAP HOSKERI",
+    "amount": 1500000,
+    "status": "Lost/ Rejected",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "M K HOSPITAL",
+    "amount": 10000000,
+    "status": "Lost/ Rejected",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-08",
+    "customer": "STAR DIAGNOSTICS & C T SCAN CENTRE",
+    "amount": 25000000,
+    "status": "Logged in",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "HIZBLIS SHIFAA",
+    "amount": 3750000,
+    "status": "Sanctioned",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "ESS ELL DIAGNOSTICS PRIVATE LIMITED",
+    "amount": 16650000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "MALTI YADAV",
+    "amount": 5271047,
+    "status": "Disbursed",
+    "region": "North"
+  }
+]
