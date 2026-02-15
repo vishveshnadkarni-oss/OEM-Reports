@@ -1,0 +1,93 @@
+[
+  {
+    "date": "2026-01-16",
+    "customer": "LINIT EXPORTS PRIVATE LIMITED",
+    "amount": 30250480,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-19",
+    "customer": "STAR TOOLING SOLUTION",
+    "amount": 1312160,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-22",
+    "customer": "R.K CUTCRAFT",
+    "amount": 1600000,
+    "status": "Logged in",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-14",
+    "customer": "KRANTI INDUSTRIES LIMITED",
+    "amount": 21600000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-06",
+    "customer": "DHIMAN ENGINEERING WORKS",
+    "amount": 2362950,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-30",
+    "customer": "KRISHNA ENGINEERING WORKS",
+    "amount": 1600000,
+    "status": "Lost/ Rejected",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-30",
+    "customer": "M D TOOLING SOLUTION",
+    "amount": 3700000,
+    "status": "Under Credit Review",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-23",
+    "customer": "CHETNA ENGINEERING WORKS",
+    "amount": 2200000,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "QUALITY KING AUTO ENGG PRODUCTS",
+    "amount": 2700000,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-19",
+    "customer": "SWARAJ ENGINEERING",
+    "amount": 1200000,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-14",
+    "customer": "KISHAN ENGINEERING WORKS",
+    "amount": 3400000,
+    "status": "Logged in",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-21",
+    "customer": "ONP AUTO",
+    "amount": 2898080,
+    "status": "Sanctioned",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-17",
+    "customer": "GUNGUN ENGG WORKSHOP",
+    "amount": 1400000,
+    "status": "Lost/ Rejected",
+    "region": "North"
+  }
+]
