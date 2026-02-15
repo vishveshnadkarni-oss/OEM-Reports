@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>OEM Monthly Report - Bajaj Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1E3A5F;
+            --secondary: #FF6B6B;
+            --accent: #4ECDC4;
+            --success: #2ECC71;
+            --warning: #F39C12;
+            --bg: #0F1419;
+            --card: #1A1F2E;
+            --text: #E8E8E8;
+            --text-light: #8B92A8;
+            --border: #2D3748;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #0F1419 0%, #1A1F2E 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Password Protection Modal */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .password-overlay.hidden {
+            display: none;
+        }
+
+        .password-modal {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .password-modal h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .password-modal p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'DM Sans', sans-serif;
+            background: #252B3B;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: var(--accent);
+            color: #0F1419;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .password-btn:hover {
+            background: #3DBDB4;
+            transform: translateY(-2px);
+        }
+
+        .password-error {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .password-error.show {
+            display: block;
+        }
+
+        .content-wrapper {
+            display: none;
+        }
+
+        .content-wrapper.unlocked {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-name {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .oem-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 0;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        @media (min-width: 1400px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            animation: slideUp 0.5s ease-out backwards;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; border-left-color: #3B82F6; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; border-left-color: #047857; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; border-left-color: #10B981; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; border-left-color: #EC4899; }
+        .stat-card:nth-child(5) { animation-delay: 0.5s; border-left-color: #F59E0B; }
+        .stat-card:nth-child(6) { animation-delay: 0.6s; border-left-color: #DC2626; }
+        .stat-card:nth-child(7) { animation-delay: 0.7s; border-left-color: #3B82F6; }
+        .stat-card:nth-child(8) { animation-delay: 0.8s; border-left-color: var(--accent); }
+
+        .conversion-card {
+            position: relative;
+        }
+
+        .conversion-status {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .conversion-strong {
+            background: #047857;
+            color: #D1FAE5;
+        }
+
+        .conversion-neutral {
+            background: #D97706;
+            color: #FEF3C7;
+        }
+
+        .conversion-weak {
+            background: #DC2626;
+            color: #FFFFFF;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .stat-value {
+                font-size: 22px;
+            }
+        }
+        
+        @media (min-width: 1201px) and (max-width: 1400px) {
+            .stat-value {
+                font-size: 24px;
+            }
+        }
+
+        .filters {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--border);
+            background: #252B3B;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            color: var(--text);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            background: rgba(78, 205, 196, 0.15);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: #0F1419;
+            border-color: var(--accent);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s ease;
+            background: #252B3B;
+            color: var(--text);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .search-box::placeholder {
+            color: var(--text-light);
+        }
+
+        .cases-table {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .case-item {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        .case-item:last-child {
+            border-bottom: none;
+        }
+
+        .case-item:hover {
+            background: rgba(78, 205, 196, 0.08);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .customer-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .loan-amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .case-details {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-dispatched { background: #047857 !important; color: #D1FAE5 !important; }
+        .status-sanctioned { background: #10B981 !important; color: #D1FAE5 !important; }
+        .status-logged { background: #F59E0B !important; color: #000000 !important; }
+        .status-credit { background: #EC4899 !important; color: #FFFFFF !important; }
+        .status-rejected { background: #DC2626 !important; color: #FFFFFF !important; }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .chart-section {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin: 30px 0;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .chart-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .export-btn {
+            padding: 12px 24px;
+            background: var(--accent);
+            color: #0F1419;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .export-btn:hover {
+            background: #3DBDB4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .export-btn:active {
+            transform: translateY(0);
+        }
+
+        #pieChart {
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            #pieChart {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .chart-section {
+                padding: 20px 15px;
+            }
+        }
+
+        .month-dropdown {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            background: #252B3B;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .month-dropdown:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .month-dropdown option {
+            background: #252B3B;
+            color: var(--text);
+        }
+
+        .footer {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 0 0 16px 16px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .oem-name {
+                font-size: 24px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-value {
+                font-size: 22px;
+            }
+            
+            /* Make Total Amount and Conversion Rate full width on mobile */
+            .stat-card:nth-child(7),
+            .stat-card:nth-child(8) {
+                grid-column: 1 / -1;
+            }
+
+            .case-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .chart-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .export-btn {
+                width: 100%;
+            }
+
+            #pieChart {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Protection -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-modal">
+            <h2>🔒 Secure Access</h2>
+            <p>Enter your password to view the report</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Enter password" autofocus>
+            <button class="password-btn" id="submitPassword">Unlock Report</button>
+            <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden until password is correct) -->
+    <div class="content-wrapper" id="contentWrapper">
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="company-name">Bajaj Finance Ltd</div>
+                <div class="oem-name" id="oemName">Loading...</div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Cases</div>
+                <div class="stat-value" id="totalCases">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Disbursed</div>
+                <div class="stat-value" id="dispatchedCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Sanctioned</div>
+                <div class="stat-value" id="sanctionedCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Under Credit Review</div>
+                <div class="stat-value" id="creditReviewCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Logged In</div>
+                <div class="stat-value" id="loggedInCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Lost/Rejected</div>
+                <div class="stat-value" id="rejectedCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Amount</div>
+                <div class="stat-value" id="totalAmount">₹0</div>
+            </div>
+            <div class="stat-card conversion-card" id="conversionCard">
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-value" id="conversionRate">0%</div>
+                <div class="conversion-status" id="conversionStatus">Neutral</div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-header">
+                <h3>Amount Distribution by Status</h3>
+                <button class="export-btn" id="exportPdf">Export to PDF</button>
+            </div>
+            <canvas id="pieChart"></canvas>
+        </div>
+
+        <div class="filters">
+            <div class="filter-section">
+                <label class="filter-label">Filter by Month</label>
+                <select class="month-dropdown" id="monthDropdown">
+                    <option value="all">All Months</option>
+                </select>
+            </div>
+            <div class="filter-section">
+                <label class="filter-label">Filter by Status</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Cases</button>
+                    <button class="filter-btn" data-filter="Disbursed">Disbursed</button>
+                    <button class="filter-btn" data-filter="Sanctioned">Sanctioned</button>
+                    <button class="filter-btn" data-filter="Logged In">Logged In</button>
+                    <button class="filter-btn" data-filter="Under Credit Review">Under Credit Review</button>
+                    <button class="filter-btn" data-filter="Lost/Rejected">Lost/Rejected</button>
+                </div>
+            </div>
+            <div class="filter-section">
+                <label class="filter-label">Search Customer</label>
+                <input type="text" class="search-box" id="searchBox" placeholder="Type customer name...">
+            </div>
+        </div>
+
+        <div class="cases-table">
+            <div class="table-header">
+                Case Details
+            </div>
+            <div id="casesList"></div>
+        </div>
+
+        <div class="footer">
+            Generated by Bajaj Finance Equipment Financing Team | For queries, do not hesitate to reach out
+        </div>
+    </div>
+    </div>
+    <!-- End Content Wrapper -->
+
+    <script>
+        // ============= PASSWORD PROTECTION =============
+        // OEM Name Display Mapping
+        const OEM_NAMES = {
+            'reveal_lasers': 'Reveal Lasers',
+            'skinnovation_pvt_ltd': 'Skinnovation Pvt Ltd',
+            '3i_medtech': '3i Medtech',
+            'neo_medi_systems': 'Neo Medi Systems',
+            'wipro_ge': 'Wipro GE',
+            'philips_india_ltd': 'Philips India Ltd',
+            'alliance_medicals': 'Alliance Medicals',
+            'villa_india': 'Villa India',
+            'medicer': 'Medicer',
+            'carl_zeiss': 'Carl Zeiss',
+            'ph_med_solutions': 'PH med Solutions',
+            'allengers': 'Allengers',
+            'styker_biomedics': 'Styker Biomedics',
+            'shree_kirthi_agency': 'Shree Kirthi Agency',
+            'monochrome_laser_pvt_ltd': 'Monochrome Laser Pvt Ltd',
+            'skin_select_pvt_ltd': 'Skin Select Pvt Ltd',
+            'my_healthskape_medicals': 'My Healthskape Medicals',
+            'bpl': 'BPL',
+            'bmec_imaging': 'B-Mec Imaging',
+            'ace': 'ACE',
+            'shibaura': 'Shibaura',
+            'jyoti': 'Jyoti',
+            'st': 'S&T',
+            'cosmos': 'Cosmos',
+            'jh_welltech': 'JH Welltech',
+            'macpower': 'Macpower',
+            'windsor': 'Windsor',
+            'aero_engineering': 'Aero Engineering',
+            'gmt_machines': 'GMT Machines',
+            'toyo': 'Toyo',
+            'laser_technology': 'Laser Technology',
+            'tsugami': 'Tsugami',
+            'bfw': 'BFW',
+            'marshal': 'Marshal',
+            'sil': 'SIL',
+            'hindustan_hydrolics': 'Hindustan Hydrolics',
+            'lmw': 'LMW',
+            'izumi': 'Izumi',
+            'pon_engineers': 'Pon Engineers',
+            'milacron': 'Milacron',
+            'precision_eng': 'Precision Eng',
+            'bobst': 'Bobst',
+            'haitain': 'Haitain',
+            'yizumi': 'Yizumi'
+        };
+        
+        // Password configuration - Custom password for each OEM
+        const OEM_PASSWORDS = {
+            'reveal_lasers': 'Reveal_123',
+            'skinnovation_pvt_ltd': 'Skinnovation_123',
+            '3i_medtech': '3i_123',
+            'neo_medi_systems': 'Neo_123',
+            'wipro_ge': 'Wipro_123',
+            'philips_india_ltd': 'Philips_123',
+            'alliance_medicals': 'Alliance_123',
+            'villa_india': 'Villa_123',
+            'medicer': 'Medicer_123',
+            'carl_zeiss': 'Carl_123',
+            'ph_med_solutions': 'Ph_123',
+            'allengers': 'Allengers_123',
+            'styker_biomedics': 'Styker_123',
+            'shree_kirthi_agency': 'Shree_123',
+            'monochrome_laser_pvt_ltd': 'Monochrome_123',
+            'skin_select_pvt_ltd': 'Skin_123',
+            'my_healthskape_medicals': 'My_123',
+            'bpl': 'Bpl_123',
+            'bmec_imaging': 'Bmec_123',
+            'ace': 'Ace_123',
+            'shibaura': 'Shibaura_123',
+            'jyoti': 'Jyoti_123',
+            'st': 'St_123',
+            'cosmos': 'Cosmos_123',
+            'jh_welltech': 'Jh_123',
+            'macpower': 'Macpower_123',
+            'windsor': 'Windsor_123',
+            'aero_engineering': 'Aero_123',
+            'gmt_machines': 'Gmt_123',
+            'toyo': 'Toyo_123',
+            'laser_technology': 'Laser_123',
+            'tsugami': 'Tsugami_123',
+            'bfw': 'Bfw_123',
+            'marshal': 'Marshal_123',
+            'sil': 'Sil_123',
+            'hindustan_hydrolics': 'Hindustan_123',
+            'lmw': 'Lmw_123',
+            'izumi': 'Izumi_123',
+            'pon_engineers': 'Pon_123',
+            'milacron': 'Milacron_123',
+            'precision_eng': 'Precision_123',
+            'bobst': 'Bobst_123',
+            'haitain': 'Haitain_123',
+            'yizumi': 'Yizumi_123',
+            'default': 'Bajaj_123'    // Default password for any OEM not listed
+        };
+
+        function checkPassword() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const oemId = urlParams.get('id') || 'default';
+            const enteredPassword = document.getElementById('passwordInput').value;
+            const correctPassword = OEM_PASSWORDS[oemId] || OEM_PASSWORDS['default'];
+
+            if (enteredPassword === correctPassword) {
+                // Password correct - show content
+                document.getElementById('passwordOverlay').classList.add('hidden');
+                document.getElementById('contentWrapper').classList.add('unlocked');
+                document.getElementById('passwordError').classList.remove('show');
+                
+                // Initialize dashboard after successful login
+                initializeDashboard();
+            } else {
+                // Password incorrect - show error
+                document.getElementById('passwordError').classList.add('show');
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+
+        // Event listeners for password
+        document.getElementById('submitPassword').addEventListener('click', checkPassword);
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // ============= ORIGINAL DASHBOARD CODE =============
+        // Data will be loaded from external file based on OEM ID
+        let sampleData = [];
+        
+        // Function to load data
+        async function loadOEMData(oemId) {
+            try {
+                // Try to load from external JSON file
+                const response = await fetch(`data/${oemId}.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    return data;
+                }
+            } catch (error) {
+                console.log('Loading from external file failed, using embedded data');
+            }
+            
+            // Fallback to embedded sample data for demo purposes
+            return [
+                { date: '2024-11-05', customer: 'ABC Constructions Pvt Ltd', amount: 2500000, status: 'Disbursed', region: 'Karnataka' },
+                { date: '2024-11-12', customer: 'XYZ Infrastructure', amount: 1800000, status: 'Sanctioned', region: 'Tamil Nadu' },
+                { date: '2024-11-18', customer: 'PQR Builders', amount: 3200000, status: 'Disbursed', region: 'Karnataka' },
+                { date: '2024-11-25', customer: 'LMN Contractors', amount: 1500000, status: 'Logged In', region: 'Kerala' },
+                { date: '2024-12-03', customer: 'RST Earthmovers', amount: 4100000, status: 'Under Credit Review', region: 'Andhra Pradesh' },
+                { date: '2024-12-10', customer: 'DEF Projects Ltd', amount: 2800000, status: 'Disbursed', region: 'Karnataka' },
+                { date: '2024-12-15', customer: 'GHI Developers', amount: 1900000, status: 'Sanctioned', region: 'Tamil Nadu' },
+                { date: '2024-12-22', customer: 'JKL Construction Co', amount: 3500000, status: 'Disbursed', region: 'Kerala' },
+                { date: '2024-12-28', customer: 'VWX Industries', amount: 2100000, status: 'Lost/Rejected', region: 'Karnataka' },
+                { date: '2025-01-08', customer: 'MNO Infra Solutions', amount: 2200000, status: 'Logged In', region: 'Karnataka' },
+                { date: '2025-01-15', customer: 'STU Mining Corp', amount: 5000000, status: 'Under Credit Review', region: 'Andhra Pradesh' },
+                { date: '2025-01-20', customer: 'YZA Constructions', amount: 1700000, status: 'Lost/Rejected', region: 'Tamil Nadu' }
+            ];
+        }
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentMonth = 'all';
+        let pieChart = null;
+
+        function formatAmount(amount) {
+            // Indian numbering system: ₹12,34,56,789
+            const numStr = amount.toString();
+            let lastThree = numStr.substring(numStr.length - 3);
+            const otherNumbers = numStr.substring(0, numStr.length - 3);
+            
+            if (otherNumbers !== '') {
+                lastThree = ',' + lastThree;
+            }
+            
+            const formatted = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
+            return '₹' + formatted;
+        }
+
+        function getMonthYear(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+        }
+
+        function getMonthYearKey(dateStr) {
+            const date = new Date(dateStr);
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+        }
+
+        function initializeMonthFilters() {
+            const months = [...new Set(sampleData.map(item => getMonthYearKey(item.date)))].sort().reverse();
+            const monthDropdown = document.getElementById('monthDropdown');
+            
+            const options = months.map(monthKey => {
+                const date = new Date(monthKey + '-01');
+                const label = date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+                return `<option value="${monthKey}">${label}</option>`;
+            }).join('');
+            
+            monthDropdown.innerHTML = `
+                <option value="all">All Months</option>
+                ${options}
+            `;
+
+            // Set default to latest month (first in sorted list)
+            if (months.length > 0) {
+                monthDropdown.value = months[0];
+                currentMonth = months[0];
+            }
+
+            // Add event listener to dropdown
+            monthDropdown.addEventListener('change', function() {
+                currentMonth = this.value;
+                updateStats();
+                renderCases();
+                updateChart();
+            });
+        }
+
+        function updateChart() {
+            const filtered = getFilteredData();
+            
+            // Group by status and sum amounts
+            const statusData = {};
+            filtered.forEach(item => {
+                // Normalize status for grouping
+                const normalizedStatus = item.status.trim().replace(/\s*\/\s*/g, '/');
+                if (!statusData[normalizedStatus]) {
+                    statusData[normalizedStatus] = 0;
+                }
+                statusData[normalizedStatus] += item.amount;
+            });
+
+            const labels = Object.keys(statusData);
+            const data = Object.values(statusData);
+            
+            // Color mapping - case insensitive
+            const colorMapping = {
+                'disbursed': '#047857',
+                'sanctioned': '#10B981',
+                'logged in': '#F59E0B',
+                'under credit review': '#EC4899',
+                'lost/rejected': '#DC2626',
+                'rejected': '#DC2626',
+                'lost': '#DC2626'
+            };
+
+            const backgroundColors = labels.map(label => 
+                colorMapping[label.toLowerCase()] || '#8B92A8'
+            );
+
+            const ctx = document.getElementById('pieChart').getContext('2d');
+            
+            if (pieChart) {
+                pieChart.destroy();
+            }
+
+            pieChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: '#1A1F2E',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    aspectRatio: window.innerWidth < 768 ? 1.2 : 2,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#E8E8E8',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'DM Sans'
+                                },
+                                padding: window.innerWidth < 768 ? 8 : 20,
+                                boxWidth: window.innerWidth < 768 ? 30 : 40
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed || 0;
+                                    return label + ': ' + formatAmount(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function exportToPDF() {
+            const button = document.getElementById('exportPdf');
+            button.textContent = '⏳ Generating PDF...';
+            button.disabled = true;
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pageWidth = 210;
+                const pageHeight = 297;
+                const margin = 20;
+                
+                // Get data
+                const oemName = document.getElementById('oemName').textContent;
+                const monthText = document.getElementById('monthDropdown').selectedOptions[0].text;
+                const filtered = getFilteredData();
+                
+                // ============= PAGE 1: HEADER & SUMMARY =============
+                let yPos = 25;
+                
+                // Header - Dark background
+                pdf.setFillColor(30, 58, 95);
+                pdf.rect(0, 0, pageWidth, 50, 'F');
+                
+                // Company name
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFontSize(24);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('BAJAJ FINANCE LTD', pageWidth / 2, 18, { align: 'center' });
+                
+                // OEM name
+                pdf.setFontSize(18);
+                pdf.text(oemName, pageWidth / 2, 30, { align: 'center' });
+                
+                // Period
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'normal');
+                pdf.text(`Monthly Report - ${monthText}`, pageWidth / 2, 40, { align: 'center' });
+                
+                yPos = 65;
+                
+                // Summary Statistics Section
+                pdf.setTextColor(0, 0, 0);
+                pdf.setFontSize(16);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Summary Statistics', margin, yPos);
+                
+                yPos += 10;
+                
+                // Stats in a grid layout
+                const stats = [
+                    { label: 'Total Cases', value: document.getElementById('totalCases').textContent },
+                    { label: 'Disbursed', value: document.getElementById('dispatchedCount').textContent },
+                    { label: 'Sanctioned', value: document.getElementById('sanctionedCount').textContent },
+                    { label: 'Under Credit Review', value: document.getElementById('creditReviewCount').textContent },
+                    { label: 'Logged In', value: document.getElementById('loggedInCount').textContent },
+                    { label: 'Lost/Rejected', value: document.getElementById('rejectedCount').textContent },
+                    { label: 'Total Amount', value: document.getElementById('totalAmount').textContent },
+                    { label: 'Conversion Rate', value: document.getElementById('conversionRate').textContent + ' (' + document.getElementById('conversionStatus').textContent + ')' }
+                ];
+                
+                // Draw stats cards in 2 columns
+                let col = 0;
+                let row = 0;
+                const colWidth = 85;
+                const rowHeight = 22;
+                
+                stats.forEach((stat, index) => {
+                    const x = margin + (col * colWidth);
+                    const y = yPos + (row * rowHeight);
+                    
+                    // Card background
+                    pdf.setFillColor(245, 247, 250);
+                    pdf.roundedRect(x, y, 80, 18, 2, 2, 'F');
+                    
+                    // Label
+                    pdf.setFontSize(9);
+                    pdf.setFont(undefined, 'normal');
+                    pdf.setTextColor(100, 100, 100);
+                    pdf.text(stat.label.toUpperCase(), x + 5, y + 6);
+                    
+                    // Value
+                    pdf.setFontSize(16);
+                    pdf.setFont(undefined, 'bold');
+                    pdf.setTextColor(0, 0, 0);
+                    pdf.text(stat.value, x + 5, y + 14);
+                    
+                    col++;
+                    if (col >= 2) {
+                        col = 0;
+                        row++;
+                    }
+                });
+                
+                yPos += (Math.ceil(stats.length / 2) * rowHeight) + 15;
+                
+                // Amount Distribution Chart
+                pdf.setFontSize(16);
+                pdf.setFont(undefined, 'bold');
+                pdf.setTextColor(0, 0, 0);
+                pdf.text('Amount Distribution by Status', margin, yPos);
+                
+                yPos += 10;
+                
+                // Add chart
+                const canvas = document.getElementById('pieChart');
+                const chartImage = canvas.toDataURL('image/png');
+                const chartSize = 100;
+                const chartX = (pageWidth - chartSize) / 2;
+                pdf.addImage(chartImage, 'PNG', chartX, yPos, chartSize, chartSize);
+                
+                yPos += chartSize + 20;
+                
+                // ============= PAGE 2+: CASE DETAILS =============
+                pdf.addPage();
+                yPos = 25;
+                
+                // Section header
+                pdf.setFillColor(30, 58, 95);
+                pdf.rect(0, 0, pageWidth, 35, 'F');
+                
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFontSize(18);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Case Details', pageWidth / 2, 22, { align: 'center' });
+                
+                yPos = 50;
+                
+                // Table header
+                pdf.setFillColor(245, 247, 250);
+                pdf.rect(margin, yPos - 6, pageWidth - (2 * margin), 10, 'F');
+                
+                pdf.setTextColor(0, 0, 0);
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Customer Name', margin + 3, yPos);
+                pdf.text('Amount', margin + 95, yPos);
+                pdf.text('Status', margin + 125, yPos);
+                pdf.text('Region', margin + 160, yPos);
+                
+                yPos += 10;
+                
+                // Table rows
+                pdf.setFont(undefined, 'normal');
+                pdf.setFontSize(9);
+                
+                filtered.forEach((item, index) => {
+                    if (yPos > pageHeight - 30) {
+                        pdf.addPage();
+                        yPos = 25;
+                        
+                        // Repeat table header on new page
+                        pdf.setFillColor(245, 247, 250);
+                        pdf.rect(margin, yPos - 6, pageWidth - (2 * margin), 10, 'F');
+                        
+                        pdf.setTextColor(0, 0, 0);
+                        pdf.setFontSize(10);
+                        pdf.setFont(undefined, 'bold');
+                        pdf.text('Customer Name', margin + 3, yPos);
+                        pdf.text('Amount', margin + 95, yPos);
+                        pdf.text('Status', margin + 125, yPos);
+                        pdf.text('Region', margin + 160, yPos);
+                        
+                        yPos += 10;
+                        pdf.setFont(undefined, 'normal');
+                        pdf.setFontSize(9);
+                    }
+                    
+                    // Alternate row background
+                    if (index % 2 === 0) {
+                        pdf.setFillColor(250, 250, 250);
+                        pdf.rect(margin, yPos - 5, pageWidth - (2 * margin), 12, 'F');
+                    }
+                    
+                    // Customer name (truncate if too long)
+                    pdf.setTextColor(0, 0, 0);
+                    let customerName = item.customer;
+                    if (customerName.length > 35) {
+                        customerName = customerName.substring(0, 32) + '...';
+                    }
+                    pdf.text(customerName, margin + 3, yPos);
+                    
+                    // Amount
+                    pdf.setTextColor(30, 58, 95);
+                    pdf.setFont(undefined, 'bold');
+                    pdf.text(formatAmount(item.amount), margin + 95, yPos);
+                    
+                    // Status badge
+                    const statusColors = {
+                        'Disbursed': [4, 120, 87],
+                        'Sanctioned': [16, 185, 129],
+                        'Logged In': [245, 158, 11],
+                        'Under Credit Review': [236, 72, 153],
+                        'Lost/Rejected': [220, 38, 38]
+                    };
+                    
+                    const color = statusColors[item.status] || [139, 146, 168];
+                    pdf.setFillColor(color[0], color[1], color[2]);
+                    pdf.setDrawColor(color[0], color[1], color[2]);
+                    pdf.roundedRect(margin + 125, yPos - 4, 30, 6, 1, 1, 'F');
+                    
+                    pdf.setTextColor(255, 255, 255);
+                    pdf.setFont(undefined, 'bold');
+                    pdf.setFontSize(7);
+                    const statusText = item.status.length > 12 ? item.status.substring(0, 10) + '..' : item.status;
+                    pdf.text(statusText, margin + 140, yPos, { align: 'center' });
+                    
+                    // Region
+                    pdf.setTextColor(100, 100, 100);
+                    pdf.setFont(undefined, 'normal');
+                    pdf.setFontSize(9);
+                    pdf.text(item.region, margin + 160, yPos);
+                    
+                    // Date (below)
+                    pdf.setFontSize(7);
+                    pdf.text(new Date(item.date).toLocaleDateString('en-IN'), margin + 3, yPos + 4);
+                    
+                    yPos += 12;
+                });
+                
+                // Footer on last page
+                yPos = pageHeight - 15;
+                pdf.setFontSize(8);
+                pdf.setTextColor(150, 150, 150);
+                pdf.text(`Generated by Bajaj Finance Equipment Financing Team | For queries, do not hesitate to reach out`, pageWidth / 2, yPos, { align: 'center' });
+                pdf.text(`Generated on: ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}`, pageWidth / 2, yPos + 4, { align: 'center' });
+                
+                // Save PDF
+                const filename = `${oemName.replace(/\s+/g, '_')}_Report_${monthText.replace(/\s+/g, '_')}.pdf`;
+                pdf.save(filename);
+                
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                alert('Error generating PDF. Please try again.');
+            } finally {
+                button.textContent = 'Export to PDF';
+                button.disabled = false;
+            }
+        }
+
+        function getStatusClass(status) {
+            const statusNormalized = status.trim().toLowerCase().replace(/\s*\/\s*/g, '/');
+            const statusMap = {
+                'disbursed': 'status-dispatched',
+                'sanctioned': 'status-sanctioned',
+                'logged in': 'status-logged',
+                'under credit review': 'status-credit',
+                'lost/rejected': 'status-rejected',
+                'rejected': 'status-rejected',
+                'lost': 'status-rejected'
+            };
+            return statusMap[statusNormalized] || 'status-logged';
+        }
+
+        function updateStats() {
+            const filtered = getFilteredData();
+            const totalCases = filtered.length;
+            
+            const dispatched = filtered.filter(c => c.status.trim().toLowerCase() === 'disbursed').length;
+            const sanctioned = filtered.filter(c => c.status.trim().toLowerCase() === 'sanctioned').length;
+            const creditReview = filtered.filter(c => c.status.trim().toLowerCase() === 'under credit review').length;
+            const loggedIn = filtered.filter(c => c.status.trim().toLowerCase() === 'logged in').length;
+            const rejected = filtered.filter(c => {
+                const status = c.status.trim().toLowerCase().replace(/\s*\/\s*/g, '/');
+                return status === 'lost/rejected' || status === 'rejected' || status === 'lost';
+            }).length;
+            const totalAmount = filtered.reduce((sum, c) => sum + c.amount, 0);
+            
+            // Calculate conversion percentage (Disbursed + Sanctioned / Total)
+            const converted = dispatched + sanctioned;
+            const conversionPercentage = totalCases > 0 ? (converted / totalCases * 100) : 0;
+            
+            // Determine conversion status
+            let conversionStatus = 'Neutral';
+            let conversionClass = 'conversion-neutral';
+            
+            if (conversionPercentage >= 40) {
+                conversionStatus = 'Strong';
+                conversionClass = 'conversion-strong';
+            } else if (conversionPercentage < 20) {
+                conversionStatus = 'Weak';
+                conversionClass = 'conversion-weak';
+            }
+            
+            document.getElementById('totalCases').textContent = totalCases;
+            document.getElementById('dispatchedCount').textContent = dispatched;
+            document.getElementById('sanctionedCount').textContent = sanctioned;
+            document.getElementById('creditReviewCount').textContent = creditReview;
+            document.getElementById('loggedInCount').textContent = loggedIn;
+            document.getElementById('rejectedCount').textContent = rejected;
+            document.getElementById('totalAmount').textContent = formatAmount(totalAmount);
+            document.getElementById('conversionRate').textContent = conversionPercentage.toFixed(1) + '%';
+            
+            const statusEl = document.getElementById('conversionStatus');
+            statusEl.textContent = conversionStatus;
+            statusEl.className = 'conversion-status ' + conversionClass;
+            
+            // Update conversion card border color
+            const conversionCard = document.getElementById('conversionCard');
+            if (conversionPercentage >= 40) {
+                conversionCard.style.borderLeftColor = '#047857';
+            } else if (conversionPercentage < 20) {
+                conversionCard.style.borderLeftColor = '#DC2626';
+            } else {
+                conversionCard.style.borderLeftColor = '#F59E0B';
+            }
+        }
+
+        function getFilteredData() {
+            return sampleData.filter(item => {
+                let matchesFilter = false;
+                const itemStatus = item.status.trim().toLowerCase().replace(/\s*\/\s*/g, '/'); // Remove spaces around slash
+                const filterStatus = currentFilter.toLowerCase().replace(/\s*\/\s*/g, '/');
+                
+                if (currentFilter === 'all') {
+                    matchesFilter = true;
+                } else if (filterStatus === 'lost/rejected') {
+                    // Match Lost/Rejected, Lost/ Rejected, Rejected, or Lost
+                    matchesFilter = itemStatus === 'lost/rejected' || itemStatus === 'rejected' || itemStatus === 'lost';
+                } else {
+                    matchesFilter = itemStatus === filterStatus;
+                }
+                
+                const matchesSearch = currentSearch === '' || 
+                    item.customer.toLowerCase().includes(currentSearch.toLowerCase());
+                const matchesMonth = currentMonth === 'all' || getMonthYearKey(item.date) === currentMonth;
+                return matchesFilter && matchesSearch && matchesMonth;
+            });
+        }
+
+        function renderCases() {
+            const filtered = getFilteredData();
+            const casesList = document.getElementById('casesList');
+            
+            if (filtered.length === 0) {
+                casesList.innerHTML = '<div class="no-results">No cases found matching your filters</div>';
+                return;
+            }
+
+            casesList.innerHTML = filtered.map(item => `
+                <div class="case-item">
+                    <div class="case-header">
+                        <div class="customer-name">${item.customer}</div>
+                        <div class="loan-amount">${formatAmount(item.amount)}</div>
+                    </div>
+                    <div class="case-details">
+                        <div class="detail-item">
+                            <span>📅 ${new Date(item.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍 ${item.region}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="status-badge ${getStatusClass(item.status)}">${item.status}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                updateStats();
+                renderCases();
+                updateChart();
+            });
+        });
+
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            currentSearch = e.target.value;
+            updateStats();
+            renderCases();
+            updateChart();
+        });
+
+        // Initialize dashboard - called only after password is verified
+        async function initializeDashboard() {
+            // Get OEM ID from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const oemId = urlParams.get('id') || 'sample';
+            
+            // Set OEM name in header
+            const oemDisplayName = OEM_NAMES[oemId] || oemId.toUpperCase().replace(/_/g, ' ');
+            document.getElementById('oemName').textContent = oemDisplayName;
+            
+            // Load data for this OEM
+            sampleData = await loadOEMData(oemId);
+            
+            // Initialize UI
+            initializeMonthFilters();
+            updateStats();
+            renderCases();
+            updateChart();
+        }
+
+        // Export button listener (set up immediately, but content is hidden until password)
+        document.getElementById('exportPdf').addEventListener('click', exportToPDF);
+        
+        // Don't auto-initialize - wait for password verification
+        // initializeDashboard() is called from checkPassword() after successful login
+    </script>
+</body>
+</html>
