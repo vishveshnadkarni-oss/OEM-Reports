@@ -1,0 +1,142 @@
+[
+  {
+    "date": "2026-02-01",
+    "customer": "RAKSHA DIAGNOSTIC AND IMAGING CENTRE-PEMFR-23/03/2026 09:56 AM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Saubhagya Rath 3023472"
+  },
+  {
+    "date": "2026-03-03",
+    "customer": "MS SHIVNANDA HOSPITAL-PEMFR-17/03/2026 03:31 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Aashish Deshpande 3046745"
+  },
+  {
+    "date": "2026-01-01",
+    "customer": "GEEDI RAVI-PEMFR-10/02/2026 03:16 PM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "",
+    "customer": "R RAJASEKARAN-PEMFR-17/02/2026 02:16 PM",
+    "amount": 5330000,
+    "status": "Branch Ops",
+    "region": "G Naveen1 3040982"
+  },
+  {
+    "date": "",
+    "customer": "PENTAGON HEALTHCARE PVT LTD-PEMFR-22/01/2026 12:13 PM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "Jomy K 3042090"
+  },
+  {
+    "date": "",
+    "customer": "LAB MICROCARE DIAGNOSTICS INDIA PRIVATE LIMITED-PEMFR-12/01/2026 04:43 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Arun Singh24 3035672"
+  },
+  {
+    "date": "",
+    "customer": "DR PALVE HOSPITAL PRIVATE LIMITED-PEMFR-11/02/2026 02:41 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Samsher Bal 963014"
+  },
+  {
+    "date": "2026-03-16",
+    "customer": "INDUR CT AND MRI CENTRE-PEMFR-16/03/2026 02:24 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "",
+    "customer": "BHANUPRATHAP HOSKERI-PEMFR-31/12/2025 10:22 AM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "Kiran AM 2012093"
+  },
+  {
+    "date": "",
+    "customer": "JIGYASA HOSPITAL-PEMFR-12/03/2026 10:51 AM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "Arun Singh24 3035672"
+  },
+  {
+    "date": "",
+    "customer": "SAURABH BAGHI-PEMFR-11/03/2026 03:07 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Harpreet Singh115 3024419"
+  },
+  {
+    "date": "",
+    "customer": "DRAVIN MOTHER AND CHILD CARE LLP-PEMFR-04/03/2026 02:39 PM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "Samsher Bal 963014"
+  },
+  {
+    "date": "",
+    "customer": "M K HOSPITAL-PEMFR-12/01/2026 11:16 AM",
+    "amount": 0,
+    "status": "Credit Underwriting",
+    "region": "Muthukumar S2 3038314"
+  },
+  {
+    "date": "",
+    "customer": "STAR DIAGNOSTICS & C T SCAN CENTRE-PEMFR-08/01/2026 12:49 PM",
+    "amount": 20000000,
+    "status": "Post Approval Sales",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "2026-02-12",
+    "customer": "HIZBLIS SHIFAA-PEMFR-27/01/2026 10:38 AM",
+    "amount": 3750000,
+    "status": "Central Ops",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "",
+    "customer": "SHRAVIL SHRAVIL-PEMFR-24/03/2026 06:25 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "",
+    "customer": "ESS ELL DIAGNOSTICS PRIVATE LIMITED-PEMFR-27/01/2026 05:17 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Harpreet Singh115 3024419"
+  },
+  {
+    "date": "",
+    "customer": "PADMAVATHI DIAGNOSTIC CENTER-PEMFR-18/03/2026 02:17 PM",
+    "amount": 3826200,
+    "status": "Post Approval Sales",
+    "region": "L Bheemudu 3036458"
+  },
+  {
+    "date": "2026-01-17",
+    "customer": "MALTI YADAV-PEMFR-12/01/2026 01:09 PM",
+    "amount": 5200100,
+    "status": "Central Ops",
+    "region": "Dhanpal Chand 2031693"
+  },
+  {
+    "date": "",
+    "customer": "ALPHA HOSPITALS-PEMFR-13/03/2026 02:54 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Surendra Attuluri 3036520"
+  }
+]
