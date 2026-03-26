@@ -1,0 +1,51 @@
+[
+  {
+    "date": "2026-02-02",
+    "customer": "BUSHAHR HOSPITAL-PEMFR-25/02/2026 03:27 PM",
+    "amount": 800000,
+    "status": "Central Ops",
+    "region": "Harpreet Singh115 3024419"
+  },
+  {
+    "date": "",
+    "customer": "AKASH IMAGING AND DIAGNOSTIC CENTRE PRIVATE LIMTED-PEMFR-06/03/2026 05:17 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Harpreet Singh115 3024419"
+  },
+  {
+    "date": "",
+    "customer": "NEERAJ CHAUHAN-PEMFR-11/02/2026 11:00 AM",
+    "amount": 1100000,
+    "status": "Central Ops",
+    "region": "Dhanpal Chand 2031693"
+  },
+  {
+    "date": "",
+    "customer": "PRANAV GOYAL-PEMFR-09/03/2026 03:17 PM",
+    "amount": 2092500,
+    "status": "Post Approval Sales",
+    "region": "Dhanpal Chand 2031693"
+  },
+  {
+    "date": "",
+    "customer": "BUSHAHR HOSPITAL-PEMFR-02/02/2026 12:00 PM",
+    "amount": 1180000,
+    "status": "Central Ops",
+    "region": "Harpreet Singh115 3024419"
+  },
+  {
+    "date": "",
+    "customer": "RITAMBHARA GAUTAM-PEMFR-16/01/2026 06:15 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "RAMBABU L 3782796"
+  },
+  {
+    "date": "",
+    "customer": "RISHI DIAGNOSTIC CENTRE-PEMFR-12/02/2026 01:05 PM",
+    "amount": 0,
+    "status": "Sales Login",
+    "region": "Dhanpal Chand 2031693"
+  }
+]
