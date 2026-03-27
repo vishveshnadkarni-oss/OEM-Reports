@@ -752,60 +752,64 @@
             'yizumi': 'Yizumi'
         };
         
-        // Password configuration - Custom password for each OEM
-        const OEM_PASSWORDS = {
-            'reveal_lasers': 'Reveal_123',
-            'skinnovation_pvt_ltd': 'Skinnovation_123',
-            '3i_medtech': '3i_123',
-            'neo_medi_systems': 'Neo_123',
-            'wipro_ge': 'Wipro_123',
-            'philips_india_ltd': 'Philips_123',
-            'alliance_medicals': 'Alliance_123',
-            'villa_india': 'Villa_123',
-            'medicer': 'Medicer_123',
-            'carl_zeiss': 'Carl_123',
-            'ph_med_solutions': 'Ph_123',
-            'allengers': 'Allengers_123',
-            'styker_biomedics': 'Styker_123',
-            'shree_kirthi_agency': 'Shree_123',
-            'monochrome_laser_pvt_ltd': 'Monochrome_123',
-            'skin_select_pvt_ltd': 'Skin_123',
-            'my_healthskape_medicals': 'My_123',
-            'bpl': 'Bpl_123',
-            'bmec_imaging': 'Bmec_123',
-            'ace': 'Ace_123',
-            'shibaura': 'Shibaura_123',
-            'jyoti': 'Jyoti_123',
-            'st': 'St_123',
-            'cosmos': 'Cosmos_123',
-            'jh_welltech': 'Jh_123',
-            'macpower': 'Macpower_123',
-            'windsor': 'Windsor_123',
-            'aero_engineering': 'Aero_123',
-            'gmt_machines': 'Gmt_123',
-            'toyo': 'Toyo_123',
-            'laser_technology': 'Laser_123',
-            'tsugami': 'Tsugami_123',
-            'bfw': 'Bfw_123',
-            'marshal': 'Marshal_123',
-            'sil': 'Sil_123',
-            'hindustan_hydrolics': 'Hindustan_123',
-            'lmw': 'Lmw_123',
-            'izumi': 'Izumi_123',
-            'pon_engineers': 'Pon_123',
-            'milacron': 'Milacron_123',
-            'precision_eng': 'Precision_123',
-            'bobst': 'Bobst_123',
-            'haitain': 'Haitain_123',
-            'yizumi': 'Yizumi_123',
-            'default': 'Bajaj_123'    // Default password for any OEM not listed
-        };
-
-        function checkPassword() {
+        // DYNAMIC Password Generation
+        // Fetches list of OEMs from GitHub and generates passwords based on alphabetical order
+        // Sequence: 123, 456, 789, 101, 111, 121, 131...
+        
+        let cachedOEMList = null;
+        
+        async function fetchOEMList() {
+            if (cachedOEMList) return cachedOEMList;
+            
+            try {
+                const response = await fetch('https://api.github.com/repos/vishveshnadkarni-oss/OEM-Reports/contents/data');
+                const files = await response.json();
+                
+                if (Array.isArray(files)) {
+                    // Get all JSON filenames, remove .json extension, and sort alphabetically
+                    cachedOEMList = files
+                        .filter(f => f.name.endsWith('.json'))
+                        .map(f => f.name.replace('.json', ''))
+                        .sort();
+                    return cachedOEMList;
+                }
+            } catch (error) {
+                console.error('Could not fetch OEM list:', error);
+            }
+            return [];
+        }
+        
+        function generatePasswordForOEM(oemId, oemList) {
+            // Find position in alphabetically sorted list
+            const index = oemList.indexOf(oemId);
+            if (index === -1) return 'Bajaj_123'; // Default if not found
+            
+            // Generate password number based on sequence
+            let passwordNum;
+            if (index === 0) passwordNum = 123;
+            else if (index === 1) passwordNum = 456;
+            else if (index === 2) passwordNum = 789;
+            else if (index === 3) passwordNum = 101;
+            else passwordNum = 111 + (index - 4) * 10;
+            
+            // Convert OEM ID to proper case for password
+            const oemName = oemId.split('_').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join('_');
+            
+            return `${oemName}_${passwordNum}`;
+        }
+        
+        async function checkPassword() {
             const urlParams = new URLSearchParams(window.location.search);
             const oemId = urlParams.get('id') || 'default';
             const enteredPassword = document.getElementById('passwordInput').value;
-            const correctPassword = OEM_PASSWORDS[oemId] || OEM_PASSWORDS['default'];
+            
+            // Fetch current OEM list from GitHub
+            const oemList = await fetchOEMList();
+            
+            // Generate correct password based on current position
+            const correctPassword = generatePasswordForOEM(oemId, oemList);
 
             if (enteredPassword === correctPassword) {
                 // Password correct - show content
