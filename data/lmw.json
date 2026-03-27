@@ -1,0 +1,93 @@
+[
+  {
+    "date": "2026-06-02",
+    "customer": "Sk Industries",
+    "amount": 1628000,
+    "status": "Disbursed",
+    "region": "South"
+  },
+  {
+    "date": "2026-02-19",
+    "customer": "Deepak Engg Works",
+    "amount": 1727000,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-13",
+    "customer": "Ess Aar International",
+    "amount": 3554160,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-24",
+    "customer": "R K Engineering Works",
+    "amount": 5000000,
+    "status": "Logged In",
+    "region": "West"
+  },
+  {
+    "date": "2026-12-02",
+    "customer": "Sree Venkateshwara Enterprises",
+    "amount": 2300000,
+    "status": "Lost/Rejected",
+    "region": "South"
+  },
+  {
+    "date": "2026-01-23",
+    "customer": "Swastik Enterprises",
+    "amount": 4625600,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-19",
+    "customer": "Sun Earthmovers & Engineers",
+    "amount": 1500000,
+    "status": "Logged In",
+    "region": "North"
+  },
+  {
+    "date": "2026-12-03",
+    "customer": "New Tech Industries",
+    "amount": 1619845,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-16",
+    "customer": "Gauri Enterprises",
+    "amount": 1779440,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-20",
+    "customer": "Babaji Engineering Works",
+    "amount": 1200000,
+    "status": "Lost/Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-03",
+    "customer": "R S Engineers",
+    "amount": 1508925,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-09-02",
+    "customer": "Perumal Engineering Works",
+    "amount": 1727000,
+    "status": "Disbursed",
+    "region": "South"
+  },
+  {
+    "date": "2026-10-03",
+    "customer": "Q And Q Solutions India Private Limited",
+    "amount": 10000000,
+    "status": "Logged In",
+    "region": "South"
+  }
+]

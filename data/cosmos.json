@@ -1,0 +1,191 @@
+[
+  {
+    "date": "2026-02-19",
+    "customer": "P C Engineering Works",
+    "amount": 2480000,
+    "status": "Disbursed",
+    "region": "South"
+  },
+  {
+    "date": "2026-03-16",
+    "customer": "Krishna Moulds",
+    "amount": 1719024,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-23",
+    "customer": "Pure Mold Tech Tooling Private Limited",
+    "amount": 3474864,
+    "status": "Disbursed",
+    "region": "West"
+  },
+  {
+    "date": "2026-02-01",
+    "customer": "C S Engineering Works",
+    "amount": 2600000,
+    "status": "Lost/Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-10-02",
+    "customer": "Deepesh Die Mold",
+    "amount": 2360000,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-31",
+    "customer": "Limras Plastic & Company",
+    "amount": 2784800,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-17",
+    "customer": "K D Dowls & Keys",
+    "amount": 2548800,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-12-02",
+    "customer": "Kkd Industries",
+    "amount": 1000000,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-03-14",
+    "customer": "K Tech Engineering Solution",
+    "amount": 12000000,
+    "status": "Logged In",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-19",
+    "customer": "Saini Engineering Works",
+    "amount": 5315900,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-12-01",
+    "customer": "Jas Enterprises",
+    "amount": 1300000,
+    "status": "Lost/Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2025-12-23",
+    "customer": "Alok Engineering Works",
+    "amount": 1900000,
+    "status": "Lost/Rejected",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-24",
+    "customer": "Fine X Engineering Corp",
+    "amount": 3020800,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-13",
+    "customer": "Adarsh Engineers",
+    "amount": 3351200,
+    "status": "Disbursed",
+    "region": "West"
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "J K Enterprises",
+    "amount": 2023700,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-07-03",
+    "customer": "M S Enterprises",
+    "amount": 3660000,
+    "status": "Lost/Rejected",
+    "region": "South"
+  },
+  {
+    "date": "2026-02-13",
+    "customer": "Asb Industry",
+    "amount": 2879200,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-01",
+    "customer": "Krishna Engineering Works",
+    "amount": 1000000,
+    "status": "Logged In",
+    "region": "North"
+  },
+  {
+    "date": "2026-11-02",
+    "customer": "Bvm Engineering Industries",
+    "amount": 2320000,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "Divya Engineering Works",
+    "amount": 1900000,
+    "status": "Logged In",
+    "region": "North"
+  },
+  {
+    "date": "2026-02-17",
+    "customer": "Beacon Optronics India Private  Limited",
+    "amount": 2171200,
+    "status": "Disbursed",
+    "region": "North"
+  },
+  {
+    "date": "2026-03-21",
+    "customer": "M Tech Equipments",
+    "amount": 3115200,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-05-01",
+    "customer": "Grindwell Engineers",
+    "amount": 4999000,
+    "status": "Logged In",
+    "region": "South"
+  },
+  {
+    "date": "2026-11-02",
+    "customer": "Harish Enterprises",
+    "amount": 2926400,
+    "status": "Sanctioned",
+    "region": "North"
+  },
+  {
+    "date": "2026-03-21",
+    "customer": "Mechatron Engineers",
+    "amount": 4948000,
+    "status": "Logged In",
+    "region": "West"
+  },
+  {
+    "date": "2026-02-23",
+    "customer": "Inspire Technology",
+    "amount": 5715000,
+    "status": "Sanctioned",
+    "region": "South"
+  },
+  {
+    "date": "2026-04-02",
+    "customer": "Unique Tools",
+    "amount": 4115840,
+    "status": "Sanctioned",
+    "region": "North"
+  }
+]
