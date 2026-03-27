@@ -1,0 +1,37 @@
+[
+  {
+    "date": "",
+    "customer": "ZYNOR INTERNATIONAL PRIVATE LIMITED-BEMFR-29/01/2026 04:02 PM",
+    "amount": 4625600,
+    "status": "Central Ops",
+    "region": "RAHUL JAISWAL7 3437568"
+  },
+  {
+    "date": "",
+    "customer": "BEACON OPTRONICS INDIA PRIVATE  LIMITED-BEMFR-12/01/2026 05:22 PM",
+    "amount": 3978016,
+    "status": "Central Ops",
+    "region": "PRATHAM GUPTA1 3431884"
+  },
+  {
+    "date": "",
+    "customer": "USHA POLY CRAFTS PRIVATE LIMITED-BEMFR-11/02/2026 04:28 PM",
+    "amount": 2557650,
+    "status": "Post Approval Sales",
+    "region": "Abdhesh Kumar3 3030390"
+  },
+  {
+    "date": "",
+    "customer": "ZYNOR INTERNATIONAL PRIVATE LIMITED-BEMFR-12/02/2026 11:45 AM",
+    "amount": 9251200,
+    "status": "Central Ops",
+    "region": "PRATHAM GUPTA1 3431884"
+  },
+  {
+    "date": "",
+    "customer": "APEX INTERNATIONAL-BEMFR-16/01/2026 03:13 PM",
+    "amount": 2758250,
+    "status": "Central Ops",
+    "region": "RAHUL JAISWAL7 3437568"
+  }
+]
