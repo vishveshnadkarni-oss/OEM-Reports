@@ -1,0 +1,106 @@
+[
+  {
+    "date": "2026-01-29",
+    "customer": "S K Enterprises Ii",
+    "amount": 4214960,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 6 days"
+  },
+  {
+    "date": "2026-01-14",
+    "customer": "Shiva Industries",
+    "amount": 1817200,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "Pavr Tools And Technologies Private Limited",
+    "amount": 21700000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-10",
+    "customer": "Sarthak Enterprises",
+    "amount": 3600000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-03",
+    "customer": "Rehoboth Engineers",
+    "amount": 1000000,
+    "status": "Disbursed",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-21",
+    "customer": "Karan Preet Engineering",
+    "amount": 3900000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-19",
+    "customer": "Patil Industries",
+    "amount": 2105120,
+    "status": "Sanctioned",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-20",
+    "customer": "Global Engineering",
+    "amount": 9000000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-24",
+    "customer": "Mould Well Industries",
+    "amount": 2500000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-18",
+    "customer": "Fortius Technologies",
+    "amount": 2068000,
+    "status": "Under Credit Review",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-29",
+    "customer": "Balaji Engineering Works",
+    "amount": 3500000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2025-12-29",
+    "customer": "Techfuture Innovations Private Limited",
+    "amount": 6200000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-12",
+    "customer": "Ezy Tech",
+    "amount": 3886625,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 6 days"
+  }
+]

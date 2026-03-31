@@ -1,0 +1,162 @@
+[
+  {
+    "date": "2026-03-23",
+    "customer": "Raksha Diagnostic And Imaging Centre",
+    "amount": 5100000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-17",
+    "customer": "Ms Shivnanda Hospital",
+    "amount": 700000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-10",
+    "customer": "Geedi Ravi",
+    "amount": 2500000,
+    "status": "Lost/Rejected",
+    "region": "South",
+    "remarks": "Income to EMI obligation is poor"
+  },
+  {
+    "date": "2026-02-17",
+    "customer": "R Rajasekaran",
+    "amount": 5330000,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-22",
+    "customer": "Pentagon Healthcare Pvt Ltd",
+    "amount": 15000000,
+    "status": "Lost/Rejected",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "Lab Microcare Diagnostics India Private Limited",
+    "amount": 1300000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-11",
+    "customer": "Dr Palve Hospital Private Limited",
+    "amount": 5800000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-16",
+    "customer": "Indur Ct And Mri Centre",
+    "amount": 15000000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2025-12-31",
+    "customer": "Bhanuprathap Hoskeri",
+    "amount": 1500000,
+    "status": "Lost/Rejected",
+    "region": "South",
+    "remarks": "Low ABB and poor repayment track record"
+  },
+  {
+    "date": "2026-03-12",
+    "customer": "Jigyasa Hospital",
+    "amount": 2737000,
+    "status": "Lost/Rejected",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-11",
+    "customer": "Saurabh Baghi",
+    "amount": 13589000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-04",
+    "customer": "Dravin Mother And Child Care Llp",
+    "amount": 2800000,
+    "status": "Lost/Rejected",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "M K Hospital",
+    "amount": 10000000,
+    "status": "Lost/Rejected",
+    "region": "South",
+    "remarks": "Had exposure of more than 3 Cr"
+  },
+  {
+    "date": "2026-01-08",
+    "customer": "Star Diagnostics & C T Scan Centre",
+    "amount": 20000000,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "Hizblis Shifaa",
+    "amount": 3750000,
+    "status": "Disbursed",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-24",
+    "customer": "Shravil Shravil",
+    "amount": 2600000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-27",
+    "customer": "Ess Ell Diagnostics Private Limited",
+    "amount": 16650000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-18",
+    "customer": "Padmavathi Diagnostic Center",
+    "amount": 3826200,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": "Sanctioned in 5 days"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "Malti Yadav",
+    "amount": 5200100,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-13",
+    "customer": "Alpha Hospitals",
+    "amount": 11700000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  }
+]

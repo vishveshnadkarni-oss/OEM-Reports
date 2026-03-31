@@ -1,0 +1,130 @@
+[
+  {
+    "date": "2026-02-13",
+    "customer": "Daljit Industries",
+    "amount": 2200000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-23",
+    "customer": "Laxmi Engineering",
+    "amount": 1000000,
+    "status": "Disbursed",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-13",
+    "customer": "Gill Agriculture Implements Private Limited",
+    "amount": 1200000,
+    "status": "Lost/Rejected",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-11",
+    "customer": "Koyo Smart Thermo Control Co",
+    "amount": 1378240,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 3 days"
+  },
+  {
+    "date": "2026-01-09",
+    "customer": "Knl Axles Private Limited",
+    "amount": 17114000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "Turbo Tech",
+    "amount": 1941100,
+    "status": "Sanctioned",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-25",
+    "customer": "Vedant Industries",
+    "amount": 6000000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-07",
+    "customer": "S S Castings",
+    "amount": 2029600,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-18",
+    "customer": "Boobalan Engineering Works",
+    "amount": 4000000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-14",
+    "customer": "Startler Technology",
+    "amount": 3401350,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-07",
+    "customer": "Rakesh Enterprises",
+    "amount": 2000000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-08",
+    "customer": "Gurmeet Agro Industries",
+    "amount": 3600000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-19",
+    "customer": "H R Enterprises",
+    "amount": 1071440,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 5 days"
+  },
+  {
+    "date": "2026-03-18",
+    "customer": "M D Industries",
+    "amount": 2081225,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-02",
+    "customer": "Avani Cad Cam Solutions",
+    "amount": 2300000,
+    "status": "Lost/Rejected",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2025-12-31",
+    "customer": "S S Engineering Works",
+    "amount": 1400000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  }
+]

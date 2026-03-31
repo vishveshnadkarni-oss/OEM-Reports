@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-03-06",
+    "customer": "Abhijay Metacraft Private Limited",
+    "amount": 4918240,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-22",
+    "customer": "Sandeep Enterprises",
+    "amount": 1800000,
+    "status": "Disbursed",
+    "region": "South",
+    "remarks": "Disbursed in 2 days"
+  }
+]
