@@ -596,6 +596,47 @@
                 max-width: 100%;
             }
         }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 31, 46, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .loading-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(78, 205, 196, 0.2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            color: var(--text);
+            font-size: 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -913,11 +954,9 @@
                 ${options}
             `;
 
-            // Set default to latest month (first in sorted list)
-            if (months.length > 0) {
-                monthDropdown.value = months[0];
-                currentMonth = months[0];
-            }
+            // Default to "All Months" so users see all cases
+            monthDropdown.value = 'all';
+            currentMonth = 'all';
 
             // Add event listener to dropdown
             monthDropdown.addEventListener('change', function() {
@@ -1155,7 +1194,10 @@
                 pdf.setFontSize(9);
                 
                 filtered.forEach((item, index) => {
-                    if (yPos > pageHeight - 30) {
+                    // Check if we need a new page (more space for remarks)
+                    const rowHeight = item.remarks && item.remarks.trim() ? 18 : 12;
+                    
+                    if (yPos > pageHeight - 40) {
                         pdf.addPage();
                         yPos = 25;
                         
@@ -1179,7 +1221,7 @@
                     // Alternate row background
                     if (index % 2 === 0) {
                         pdf.setFillColor(250, 250, 250);
-                        pdf.rect(margin, yPos - 5, pageWidth - (2 * margin), 12, 'F');
+                        pdf.rect(margin, yPos - 5, pageWidth - (2 * margin), rowHeight, 'F');
                     }
                     
                     // Customer name (truncate if too long)
@@ -1200,11 +1242,14 @@
                         'Disbursed': [4, 120, 87],
                         'Sanctioned': [16, 185, 129],
                         'Logged In': [245, 158, 11],
+                        'Logged in': [245, 158, 11],
                         'Under Credit Review': [236, 72, 153],
-                        'Lost/Rejected': [220, 38, 38]
+                        'Lost/Rejected': [220, 38, 38],
+                        'Lost/ Rejected': [220, 38, 38]
                     };
                     
-                    const color = statusColors[item.status] || [139, 146, 168];
+                    const normalizedStatus = item.status.trim().replace(/\s*\/\s*/g, '/');
+                    const color = statusColors[item.status] || statusColors[normalizedStatus] || [139, 146, 168];
                     pdf.setFillColor(color[0], color[1], color[2]);
                     pdf.setDrawColor(color[0], color[1], color[2]);
                     pdf.roundedRect(margin + 125, yPos - 4, 30, 6, 1, 1, 'F');
@@ -1221,11 +1266,40 @@
                     pdf.setFontSize(9);
                     pdf.text(item.region, margin + 160, yPos);
                     
-                    // Date (below)
+                    // Date (below) - FIXED DATE PARSING
                     pdf.setFontSize(7);
-                    pdf.text(new Date(item.date).toLocaleDateString('en-IN'), margin + 3, yPos + 4);
+                    let dateDisplay = '';
+                    if (item.date) {
+                        try {
+                            const parts = item.date.split('-');
+                            if (parts.length === 3) {
+                                const year = parseInt(parts[0]);
+                                const month = parseInt(parts[1]) - 1;
+                                const day = parseInt(parts[2]);
+                                const dateObj = new Date(year, month, day);
+                                dateDisplay = dateObj.toLocaleDateString('en-IN');
+                            } else {
+                                dateDisplay = new Date(item.date).toLocaleDateString('en-IN');
+                            }
+                        } catch (e) {
+                            dateDisplay = item.date;
+                        }
+                    }
+                    pdf.text(dateDisplay, margin + 3, yPos + 4);
                     
-                    yPos += 12;
+                    // Remarks (if exists) - in next line with icon
+                    if (item.remarks && item.remarks.trim()) {
+                        pdf.setFontSize(7);
+                        pdf.setTextColor(245, 158, 11); // Yellow/orange color
+                        pdf.setFont(undefined, 'italic');
+                        let remarksText = item.remarks.trim();
+                        if (remarksText.length > 80) {
+                            remarksText = remarksText.substring(0, 77) + '...';
+                        }
+                        pdf.text('💬 ' + remarksText, margin + 3, yPos + 9);
+                    }
+                    
+                    yPos += rowHeight;
                 });
                 
                 // Footer on last page
@@ -1347,7 +1421,34 @@
                 return;
             }
 
-            casesList.innerHTML = filtered.map(item => `
+            casesList.innerHTML = filtered.map(item => {
+                // Fix date parsing - handle YYYY-MM-DD format correctly
+                let dateDisplay = '';
+                if (item.date) {
+                    try {
+                        // Parse date as YYYY-MM-DD
+                        const parts = item.date.split('-');
+                        if (parts.length === 3) {
+                            const year = parseInt(parts[0]);
+                            const month = parseInt(parts[1]) - 1; // JS months are 0-indexed
+                            const day = parseInt(parts[2]);
+                            const dateObj = new Date(year, month, day);
+                            dateDisplay = dateObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                        } else {
+                            dateDisplay = new Date(item.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                        }
+                    } catch (e) {
+                        dateDisplay = item.date;
+                    }
+                }
+                
+                // Build remarks display if exists
+                const remarksHtml = item.remarks && item.remarks.trim() ? 
+                    `<div class="detail-item" style="flex-basis: 100%; margin-top: 8px;">
+                        <span style="color: #F59E0B;">💬 ${item.remarks}</span>
+                    </div>` : '';
+                
+                return `
                 <div class="case-item">
                     <div class="case-header">
                         <div class="customer-name">${item.customer}</div>
@@ -1355,7 +1456,7 @@
                     </div>
                     <div class="case-details">
                         <div class="detail-item">
-                            <span>📅 ${new Date(item.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                            <span>📅 ${dateDisplay}</span>
                         </div>
                         <div class="detail-item">
                             <span>📍 ${item.region}</span>
@@ -1363,9 +1464,10 @@
                         <div class="detail-item">
                             <span class="status-badge ${getStatusClass(item.status)}">${item.status}</span>
                         </div>
+                        ${remarksHtml}
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         // Event listeners
