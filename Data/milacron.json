@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2026-03-25",
+    "customer": "Plastic Iq Engineering",
+    "amount": 11400000,
+    "status": "Logged In",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-09",
+    "customer": "Fortune Pet Industries Private Limited",
+    "amount": 6386000,
+    "status": "Under Credit Review",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-11",
+    "customer": "Ideal Polypet",
+    "amount": 6386000,
+    "status": "Disbursed",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-23",
+    "customer": "N R Industries",
+    "amount": 23000000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-28",
+    "customer": "Nishant Mouldings Private Limited",
+    "amount": 5250000,
+    "status": "Disbursed",
+    "region": "South",
+    "remarks": "Disbursed in 3 days"
+  },
+  {
+    "date": "2026-02-09",
+    "customer": "New Durga Engineering Works",
+    "amount": 6000000,
+    "status": "Disbursed",
+    "region": "West",
+    "remarks": ""
+  }
+]
