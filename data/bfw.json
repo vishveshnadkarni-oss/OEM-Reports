@@ -1,0 +1,154 @@
+[
+  {
+    "date": "2026-02-25",
+    "customer": "Advik Autotech Industries",
+    "amount": 5000000,
+    "status": "Under Credit Review",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-24",
+    "customer": "Bharath Industries",
+    "amount": 7500000,
+    "status": "Disbursed",
+    "region": "South",
+    "remarks": "Disbursed in 4 days"
+  },
+  {
+    "date": "2026-03-20",
+    "customer": "R R Tools India",
+    "amount": 1745220,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 3 days"
+  },
+  {
+    "date": "2026-02-25",
+    "customer": "R K Engineering",
+    "amount": 1400000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-06",
+    "customer": "R.P Engineering Works",
+    "amount": 1790000,
+    "status": "Sanctioned",
+    "region": "West",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-03",
+    "customer": "Phoenix Automations",
+    "amount": 2000000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2025-12-27",
+    "customer": "Balaji Enterprises",
+    "amount": 2333450,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-05",
+    "customer": "Quality King Auto Engg Products",
+    "amount": 3558880,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-11",
+    "customer": "Thakur Plastics",
+    "amount": 2690400,
+    "status": "Disbursed",
+    "region": "West",
+    "remarks": "Disbursed in 2 days"
+  },
+  {
+    "date": "2026-03-12",
+    "customer": "D.S Industries",
+    "amount": 6500000,
+    "status": "Lost/Rejected",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-07",
+    "customer": "Adarash Engineering",
+    "amount": 1416000,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2025-12-30",
+    "customer": "Teri Oat Agro Industries Private Limited",
+    "amount": 22392000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-13",
+    "customer": "Padminish Ventures Private Limited",
+    "amount": 2147600,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-03",
+    "customer": "U K Engg Works",
+    "amount": 3445600,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-05",
+    "customer": "New Randhir Press Tools",
+    "amount": 4125280,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 6 days"
+  },
+  {
+    "date": "2026-01-30",
+    "customer": "Kumar Engineering Co",
+    "amount": 2500000,
+    "status": "Lost/Rejected",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-17",
+    "customer": "Ostek Tools",
+    "amount": 4175440,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-16",
+    "customer": "Sri Mallikarjuna Engineering Works",
+    "amount": 2550200,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-25",
+    "customer": "Shivam Engineering Works",
+    "amount": 3000000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  }
+]

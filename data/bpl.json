@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-02-25",
+    "customer": "Bushahr Hospital",
+    "amount": 800000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-06",
+    "customer": "Akash Imaging And Diagnostic Centre Private Limted",
+    "amount": 3773000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-11",
+    "customer": "Neeraj Chauhan",
+    "amount": 1100000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-09",
+    "customer": "Pranav Goyal",
+    "amount": 2092500,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-02",
+    "customer": "Bushahr Hospital",
+    "amount": 1180000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-16",
+    "customer": "Ritambhara Gautam",
+    "amount": 1100000,
+    "status": "Logged In",
+    "region": "South",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-12",
+    "customer": "Rishi Diagnostic Centre",
+    "amount": 2600000,
+    "status": "Logged In",
+    "region": "North",
+    "remarks": ""
+  }
+]

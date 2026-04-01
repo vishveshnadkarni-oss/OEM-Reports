@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-03-18",
+    "customer": "Drishti Eye Centre",
+    "amount": 1300100,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbured in 7 days"
+  },
+  {
+    "date": "2026-02-10",
+    "customer": "Gurjeet Singh",
+    "amount": 1111685,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-30",
+    "customer": "Jacob Sanderwale",
+    "amount": 1060000,
+    "status": "Sanctioned",
+    "region": "South",
+    "remarks": "Sanctioned in 2 days"
+  }
+]

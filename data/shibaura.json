@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2026-01-29",
+    "customer": "Zynor International Private Limited",
+    "amount": 4625600,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 2 days"
+  },
+  {
+    "date": "2026-01-12",
+    "customer": "Beacon Optronics India Private  Limited",
+    "amount": 3978016,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 5 days"
+  },
+  {
+    "date": "2026-02-11",
+    "customer": "Usha Poly Crafts Private Limited",
+    "amount": 2557650,
+    "status": "Sanctioned",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-02-12",
+    "customer": "Zynor International Private Limited",
+    "amount": 9251200,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-01-16",
+    "customer": "Apex International",
+    "amount": 2758250,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": "Disbursed in 4 days"
+  }
+]
