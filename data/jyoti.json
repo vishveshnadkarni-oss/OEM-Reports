@@ -134,5 +134,21 @@
     "status": "Sanctioned",
     "region": "North",
     "remarks": ""
+  },
+  {
+    "date": "2026-03-11",
+    "customer": "H S Enterprises",
+    "amount": 944000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
+  },
+  {
+    "date": "2026-03-11",
+    "customer": "B L Auto Products",
+    "amount": 944000,
+    "status": "Disbursed",
+    "region": "North",
+    "remarks": ""
   }
 ]
